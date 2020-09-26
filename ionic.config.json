@@ -1,0 +1,7 @@
+{
+  "name": "kuberfletess",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
