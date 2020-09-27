@@ -1,32 +1,60 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" *ngIf="selOrder">
   <ion-toolbar>
     <ion-buttons>
       <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
     </ion-buttons>
     <ion-title>
-      Order id
+      {{selOrder.order_code}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" *ngIf="true">
+<ion-content [fullscreen]="true" *ngIf="selOrder">
   <ion-item>
-    <ion-icon name="person-circle" color="primary"></ion-icon>
+    <!-- <ion-icon name="person-circle" color="primary"></ion-icon> -->
     <ion-label class="ion-text-wrap">
       <h2>
-        #aaa123
+        {{selOrder.status_code}}
         <span class="date">
-          <ion-note>Completed</ion-note>
+          <ion-note>{{selOrder.shipping_datetime}}</ion-note>
         </span>
       </h2>
-      <ion-note>otras cosas</ion-note>
+      <ion-note>
+        {{selOrder.client_id}}
+      </ion-note>
+    </ion-label>
+  </ion-item>
+  <ion-item>
+    <!-- <ion-icon name="person-circle" color="primary"></ion-icon> -->
+    <ion-label class="ion-text-wrap">
+      <h2>
+        TrackingId
+        <span class="date">
+          <ion-note>{{selOrder.trak_id}}</ion-note>
+        </span>
+      </h2>
+      <ion-note>
+        {{selOrder.client_id}}
+      </ion-note>
     </ion-label>
   </ion-item>
   
   <div class="ion-padding">
-    <h1>zarzaza</h1>
+    <h1>Order Detail</h1>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      {{selOrder.order_details}}
+    </p>
+    <p>
+      {{selOrder.seller_id}}
+    </p>
+    <p>
+      {{selOrder.tag}}
+    </p>
+    <p>
+      {{selOrder.lat}}
+    </p>
+    <p>
+      {{selOrder.log}}
     </p>
   </div>
 </ion-content>

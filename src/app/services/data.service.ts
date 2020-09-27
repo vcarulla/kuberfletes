@@ -2,8 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 
 export interface Order {
-  code: string;
-  status: string;
+  client_id: number,
+  id: number,
+  lat: string,
+  log: string,
+  order_code: string,
+  order_details: string,
+  seller_id: string,
+  shipping_datetime: string,
+  status: number,
+  status_code: string,
+  tag: string,
+  trak_id: number
 }
 
 @Injectable({
@@ -12,6 +22,8 @@ export interface Order {
 export class DataService {
 
   constructor(private http: HttpClient) { }
+
+  public order: Order;
 
 /*   public getOrders() {
     this.http.get('https://run.mocky.io/v3/57f560ec-43b1-42ad-a3d5-56d5ca0dbde7')
@@ -51,7 +63,7 @@ export class DataService {
     })
   } */
 
-/*   public getMessageById(id: number): Message {
-    return this.messages[id];
-  } */
+  public getOrderbyId(id: number): Order {
+    return this.order[id];
+  }
 }

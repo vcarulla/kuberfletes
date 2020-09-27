@@ -13,60 +13,39 @@ export class HomePage {
     private storage: Storage) {}
 
   orders: any = ''
-  email: string = ''
+  public email: string = ''
 
   ngOnInit() {
     this.storage.get('email').then((val) => {
       console.log('email:', val);
     });
-    this.getOrders(this.email);
   }
 
-  getOrders(email: string) {
-    this.http.get('https://run.mocky.io/v3/57f560ec-43b1-42ad-a3d5-56d5ca0dbde7')
+  ionViewDidEnter() {
+    this.getOrders();
+    //this.getStates()
+  }
+
+  getOrders() {
+    console.log('sss', this.email)
+    this.http.get(`https://kuberfletes-290720.uc.r.appspot.com/orders/gustavoghioldi@gmail.com`)
     .subscribe(data => {
-      this.orders = [
-        {
-        "code": "#aaa123",
-        "status": "Completed"
-        },
-        {
-        "code": "#bbbb123",
-        "status": "Awaiting"
-        },
-        {
-        "code": "#ccccc2345",
-        "status": "Crash"
-        },
-        {
-        "code": "#dddd123",
-        "status": "Completed"
-        },
-        {
-        "code": "#ddwef123",
-        "status": "Completed"
-        },
-        {
-          "code": "#bbbb123",
-          "status": "Awaiting"
-          },
-          {
-          "code": "#ccccc2345",
-          "status": "Crash"
-          },
-          {
-          "code": "#dddd123",
-          "status": "Completed"
-          },
-          {
-          "code": "#ddwef123",
-          "status": "Completed"
-          }
-        ];
-      console.log(this.orders);
-    })
+      this.orders = data;
+      this.storage.set('orders', this.orders);
+      console.log(this.orders )
+    });
   }
 
+  getStates() {
+    console.log('sss', this.email)
+    this.http.get(`https://kuberfletes-290720.uc.r.appspot.com//state`)
+    .subscribe(data => {
+      console.log(data )
+    });
+  }
+
+
+  
   refresh(ev) {
     setTimeout(() => {
       ev.detail.complete();

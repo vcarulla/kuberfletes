@@ -1,27 +1,28 @@
 <ion-grid>
   <ion-list>
-    <ion-item button *ngIf="order" [routerLink]="'/message/' + order.code" [detail]="false">
+    <ion-item button *ngIf="order" [routerLink]="'/message/' + order.id" [detail]="false">
       <ion-row size="12">
         <ion-col size="9">
           <ion-label class="order-title">
-            {{order.code}}
+            {{order.order_code}}
           </ion-label>
         </ion-col>
         <ion-col size="3">
           <div class="ion-text-end">
-            <ion-badge item-end *ngIf="order.status=='Completed'" [color]="'success'" slot="end">
-              {{order.status}}
+            <ion-badge item-end *ngIf="order.status_code=='COMPLETE' || order.status_code=='RECEIVED'" [color]="'success'" slot="end">
+              {{order.status_code}}
             </ion-badge>
-            <ion-badge item-end *ngIf="order.status=='Awaiting'" [color]="'warning'" slot="end">
-              {{order.status}}
+            <ion-badge item-end *ngIf="order.status_code=='ONTHEWAY' || order.status_code=='INPROGRESS'" [color]="'warning'" slot="end">
+              {{order.status_code}}
             </ion-badge>
-            <ion-badge item-end *ngIf="order.status=='Crash'" [color]="'danger'" slot="end">
-              {{order.status}}
+            <ion-badge item-end *ngIf="order.status_code=='CANCELLED' || order.status_code=='REJECTED'" [color]="'danger'" slot="end">
+              {{order.status_code}}
             </ion-badge>
           </div>
         </ion-col>
         <ion-col size="12">
-          <ion-label class="order-desc">otra gilada</ion-label>
+          <ion-label class="order-desc">{{order.client_id}}</ion-label>
+          <ion-label class="order-desc">{{order.tag}}</ion-label>
         </ion-col>
       </ion-row>
     </ion-item>
