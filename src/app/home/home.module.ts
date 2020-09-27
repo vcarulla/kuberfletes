@@ -12,8 +12,8 @@ import { MessageComponentModule } from '../message/message.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    MessageComponentModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    MessageComponentModule
   ],
   declarations: [HomePage]
 })
