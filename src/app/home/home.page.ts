@@ -63,7 +63,6 @@ export class HomePage {
           "status": "Completed"
           }
         ];
-      //this.storage.set('orders', this.orders);
       console.log(this.orders);
     })
   }
