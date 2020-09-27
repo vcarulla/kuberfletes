@@ -37,7 +37,6 @@ export class LoginPage {
   
     goHome(value) {
       this.email = value;
-      console.log(this.email)
     }
 
     getUserData() {

@@ -41,7 +41,6 @@
             <ion-input type="number" value="{{selOrder.trak_id}}"></ion-input>
             <ion-button>update</ion-button>
           </span>
- 
         </h2>
       </ion-label>
     </ion-item>
@@ -109,6 +108,16 @@
             <ion-note>{{selOrder.tag}}</ion-note>
           </span>
         </h2>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <h2>
+          Send Message
+        </h2>
+        <ion-textarea  type="number" placeholder="Enter message to customer"></ion-textarea>
+        <ion-button (click)="sendSMS()">Send SMS</ion-button>
       </ion-label>
     </ion-item>
   </div>

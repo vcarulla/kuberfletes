@@ -18,7 +18,6 @@ export class HomePage {
   ngOnInit() {
     this.storage.get('email').then((val) => {
       this.email = val;
-      console.log('email:', val);
     });
   }
 
@@ -28,24 +27,12 @@ export class HomePage {
   }
 
   getOrders() {
-    console.log('sss', this.email)
     this.http.get(`https://kuberfletes-290720.uc.r.appspot.com/orders/${this.email}`)
     .subscribe(data => {
       this.orders = data;
       this.storage.set('orders', this.orders);
-      console.log(this.orders )
     });
   }
-
-  getStates() {
-    console.log('sss', this.email)
-    this.http.get(`https://kuberfletes-290720.uc.r.appspot.com//state`)
-    .subscribe(data => {
-      console.log(data )
-    });
-  }
-
-
   
   refresh(ev) {
     setTimeout(() => {
