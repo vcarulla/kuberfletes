@@ -14,7 +14,7 @@
     <h1>Order Status</h1>
     <ion-item>
       <ion-label><h2>Status</h2></ion-label>
-      <ion-select placeholder="Select State" value="{{selOrder.status_code}}" [selectedText]="(value)">
+      <ion-select placeholder="Select State" value="{{selOrder.status_code}}">
         <ion-select-option *ngFor="let status of state" value="{{status.code}}">
           {{status.name}}
         </ion-select-option>
