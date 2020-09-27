@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
+    path: 'message/:id',
+    loadChildren: () => import('./view-message/view-message.module').then( m => m.ViewMessagePageModule)
+  },
+  {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
