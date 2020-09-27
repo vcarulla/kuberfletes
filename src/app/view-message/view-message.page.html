@@ -14,7 +14,7 @@
     <h1>Order Status</h1>
     <ion-item>
       <ion-label><h2>Status</h2></ion-label>
-      <ion-select placeholder="Select State" value="{{selOrder.status_code}}" [selectedText]="selOrder.status_code">
+      <ion-select placeholder="Select State" value="{{selOrder.status_code}}" [selectedText]="(value)">
         <ion-select-option *ngFor="let status of state" value="{{status.code}}">
           {{status.name}}
         </ion-select-option>
@@ -39,23 +39,17 @@
           TrackingId
           <span class="date">
             <ion-input type="number" value="{{selOrder.trak_id}}"></ion-input>
-            <ion-button>update</ion-button>
           </span>
         </h2>
       </ion-label>
     </ion-item>
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <ion-button>update</ion-button>
+      </ion-label>
+    </ion-item>
   </div>
   
-<!--   <ion-item>
-    <ion-label class="ion-text-wrap">
-      <h2>
-        Tracking Id
-        <span class="date">
-          <ion-note>{{selOrder.trak_id}}</ion-note>
-        </span>
-      </h2>
-    </ion-label>
-  </ion-item> -->
   
   <div class="ion-padding">
     <h1>Order Detail</h1>
