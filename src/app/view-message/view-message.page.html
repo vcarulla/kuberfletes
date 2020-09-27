@@ -10,51 +10,106 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" *ngIf="selOrder">
-  <ion-item>
-    <!-- <ion-icon name="person-circle" color="primary"></ion-icon> -->
+  <div class="ion-padding">
+    <h1>Order Status</h1>
+    <ion-item>
+      <ion-label><h2>Status</h2></ion-label>
+      <ion-select placeholder="Select State" value="{{selOrder.status_code}}" [selectedText]="selOrder.status_code">
+        <ion-select-option *ngFor="let status of state" value="{{status.code}}">
+          {{status.name}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <h2>
+          Location
+          <span class="date">
+            <ion-note>{{selOrder.lat}}</ion-note>
+          </span>
+          <span class="date">
+            <ion-note>{{selOrder.log}}</ion-note>
+          </span>
+        </h2>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <h2>
+          TrackingId
+          <span class="date">
+            <ion-input type="number" value="{{selOrder.trak_id}}"></ion-input>
+            <ion-button>update</ion-button>
+          </span>
+ 
+        </h2>
+      </ion-label>
+    </ion-item>
+  </div>
+  
+<!--   <ion-item>
     <ion-label class="ion-text-wrap">
       <h2>
-        {{selOrder.status_code}}
-        <span class="date">
-          <ion-note>{{selOrder.shipping_datetime}}</ion-note>
-        </span>
-      </h2>
-      <ion-note>
-        {{selOrder.client_id}}
-      </ion-note>
-    </ion-label>
-  </ion-item>
-  <ion-item>
-    <!-- <ion-icon name="person-circle" color="primary"></ion-icon> -->
-    <ion-label class="ion-text-wrap">
-      <h2>
-        TrackingId
+        Tracking Id
         <span class="date">
           <ion-note>{{selOrder.trak_id}}</ion-note>
         </span>
       </h2>
-      <ion-note>
-        {{selOrder.client_id}}
-      </ion-note>
     </ion-label>
-  </ion-item>
+  </ion-item> -->
   
   <div class="ion-padding">
     <h1>Order Detail</h1>
-    <p>
-      {{selOrder.order_details}}
-    </p>
-    <p>
-      {{selOrder.seller_id}}
-    </p>
-    <p>
-      {{selOrder.tag}}
-    </p>
-    <p>
-      {{selOrder.lat}}
-    </p>
-    <p>
-      {{selOrder.log}}
-    </p>
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <h2>
+          Items
+          <span class="date">
+            <ion-note>{{selOrder.order_details}}</ion-note>
+          </span>
+        </h2>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <h2>
+          Delivery Date
+          <span class="date">
+            <ion-note>{{selOrder.shipping_datetime}}</ion-note>
+          </span>
+        </h2>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <h2>
+          Seller Id
+          <span class="date">
+            <ion-note>{{selOrder.seller_id}}</ion-note>
+          </span>
+        </h2>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <h2>
+          Client Id
+          <span class="date">
+            <ion-note>{{selOrder.client_id}}</ion-note>
+          </span>
+        </h2>
+      </ion-label>
+    </ion-item>
+
+    <ion-item *ngIf="selOrder.tag != 'NOTAG'" >
+      <ion-label class="ion-text-wrap">
+        <h2>
+          Tag
+          <span class="date">
+            <ion-note>{{selOrder.tag}}</ion-note>
+          </span>
+        </h2>
+      </ion-label>
+    </ion-item>
   </div>
 </ion-content>
